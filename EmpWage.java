@@ -9,8 +9,11 @@ public class EmpWage {
 	public static final int NUM_OF_WORKING_DAYS = 20;
 	public static final int MAX_HRS_IN_MONTH = 100;
 
-	public static void main(String[] args) {
-
+	/**
+	 * Calculate Wages till a condition of total working hours or days is reached for a month
+	 */
+	private void computeEmployeeWage() {
+	
 		System.out.println("Welcome to Employee Wage Computation Program");
 		// variables
 		int totalEmpWage = 0, totalWorkingDays = 0, totalEmpHrs = 0;
@@ -35,8 +38,11 @@ public class EmpWage {
 			System.out.println("Emp Wage: " + empWage);
 		}
 		System.out.println("Total Employee Wage: " + totalEmpWage);
-
 	}
 
+	public static void main(String[] args) {
+		EmpWage empWage = new EmpWage();
+		empWage.computeEmployeeWage();
+	}
 
 }
