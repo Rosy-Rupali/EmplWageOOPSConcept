@@ -9,26 +9,30 @@ public class EmpWage {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation Program");
 		EmpWage empwage = new EmpWage();
-		empwage.partTimeEmployeeWage();
+		empwage.usingSwitchCaseEmployeeWage();
 
 	}
 
 	/**
-	 * Added part-time and full-time employee daily wage
+	 * part-time and full-time employee daily wage using switch case
 	 */
-	private void partTimeEmployeeWage() {
+	private void usingSwitchCaseEmployeeWage() {
 		int empHrs = 0;
 		int empWage = 0;
-		double empCheck = Math.floor(Math.random() * 10) % 3;
-		if (empCheck == IS_FULL_TIME)
+		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		switch (empCheck) {
+		case IS_FULL_TIME:
 			empHrs = 8;
-		else if (empCheck == IS_PART_TIME)
+			break;
+		case IS_PART_TIME:
 			empHrs = 4;
+			break;
+		default:
+			empHrs = 0;
+		}
 		empWage = empHrs * EMP_RATE_PER_HOUR;
 		System.out.println("Emp Wage: " + empWage);
 
 	}
 
 }
-	
-
