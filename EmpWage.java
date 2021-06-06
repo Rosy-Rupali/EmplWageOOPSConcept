@@ -2,36 +2,16 @@ package com.bridgelabz;
 
 public class EmpWage {
 
-	final static int IS_FULL_TIME = 1;
-	final static int IS_PART_TIME = 2;
-	final static int EMP_RATE_PER_HOUR = 20;
-
 	public static void main(String[] args) {
+
 		System.out.println("Welcome to Employee Wage Computation Program");
-		EmpWage empwage = new EmpWage();
-		empwage.usingSwitchCaseEmployeeWage();
-
-	}
-
-	/**
-	 * part-time and full-time employee daily wage using switch case
-	 */
-	private void usingSwitchCaseEmployeeWage() {
-		int empHrs = 0;
-		int empWage = 0;
-		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-		switch (empCheck) {
-		case IS_FULL_TIME:
-			empHrs = 8;
-			break;
-		case IS_PART_TIME:
-			empHrs = 4;
-			break;
-		default:
-			empHrs = 0;
+		int isPresent = 1;
+		double empCheck = Math.floor(Math.random() * 10) % 2;
+		if (empCheck == isPresent) {
+			System.out.println("Employee is present");
+		} else {
+			System.out.println("Employee is absent");
 		}
-		empWage = empHrs * EMP_RATE_PER_HOUR;
-		System.out.println("Emp Wage: " + empWage);
 
 	}
 
