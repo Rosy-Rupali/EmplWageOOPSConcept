@@ -5,21 +5,24 @@ public class EmpWage {
 	// constants
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
-	public static final int EMP_RATE_PER_HOUR = 20;
-	public static final int NUM_OF_WORKING_DAYS = 20;
-	public static final int MAX_HRS_IN_MONTH = 100;
 
 	/**
-	 * Calculate Wages till a condition of total working hours or days is reached
-	 * for a month
+	 * This method is used to calculate total wage of an employee in it's company
+	 * 
+	 * @param company First argument specifies the name of compamy
+	 * @param empRatePerHour Second argument specifies company rate value
+	 * @param numOfWorkingDays Third argument working days in the company
+	 * @param maxHrsPerMontH Fourth argument hrs to work in month
+	 * @return total employee wage
 	 */
-	public static int computeEmployeeWage() {
+	public static int computeEmployeeWage(String company, int empRatePerHour, int numOfWorkingDays,
+			int maxHrsPerMonth) {
 
 		System.out.println("Welcome to Employee Wage Computation Program");
 		// variables
 		int empHrs = 0, totalWorkingDays = 0, totalEmpHrs = 0;
 
-		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+		while (totalEmpHrs <= maxHrsPerMonth && totalWorkingDays < numOfWorkingDays) {
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empCheck) {
@@ -35,13 +38,14 @@ public class EmpWage {
 			totalEmpHrs = totalEmpHrs + empHrs;
 			System.out.println("DAY#: " + totalWorkingDays + " Emp Hr: " + empHrs);
 		}
-		int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-		System.out.println("Total Employee Wage: " + totalEmpWage);
+		int totalEmpWage = totalEmpHrs * empRatePerHour;
+		System.out.println("Total emp Wage for company: " + company + " is: " + totalEmpWage);
 		return totalEmpWage;
 	}
 
 	public static void main(String[] args) {
-		computeEmployeeWage();
+		computeEmployeeWage("DMart", 20, 2, 10);
+		computeEmployeeWage("Reliance", 10, 4, 20);
 	}
 
 }
