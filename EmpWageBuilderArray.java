@@ -16,7 +16,7 @@ public class EmpWageBuilderArray implements IfComputeEmpWage {
 	}
 
 	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
-		CompanyEmpWage companyEmpWage  = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+		CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
 		companyEmpWageArrayList.add(companyEmpWage);
 	}
 
@@ -46,7 +46,7 @@ public class EmpWageBuilderArray implements IfComputeEmpWage {
 				empHrs = 0;
 			}
 			totalEmpHrs = totalEmpHrs + empHrs;
-			System.out.println("DAY#: " + totalWorkingDays + " Emp Hr: " + empHrs);
+			System.out.println("DAY#: " + totalWorkingDays + " Emp Hr: " + empHrs+" Daily Employee Wage: "+(empHrs*companyEmpWage.empRatePerHour));
 		}
 		return totalEmpHrs * companyEmpWage.empRatePerHour;
 	}
