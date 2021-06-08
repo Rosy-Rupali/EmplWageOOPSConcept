@@ -6,23 +6,26 @@ public class EmpWage {
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 
-	/**
-	 * This method is used to calculate total wage of an employee in it's company
-	 * 
-	 * @param company First argument specifies the name of compamy
-	 * @param empRatePerHour Second argument specifies company rate value
-	 * @param numOfWorkingDays Third argument working days in the company
-	 * @param maxHrsPerMontH Fourth argument hrs to work in month
-	 * @return total employee wage
-	 */
-	public static int computeEmployeeWage(String company, int empRatePerHour, int numOfWorkingDays,
-			int maxHrsPerMonth) {
+	private final String company;
+	private final int empRaterPerHour;
+	private final int numOfWorkingDays;
+	private final int maxHoursPerMonth;
+	private int totalEmpWage;
+	
+	public EmpWage(String company, int empRaterPerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+		this.company = company;
+		this.empRaterPerHour = empRaterPerHour;
+		this.numOfWorkingDays = numOfWorkingDays;
+		this.maxHoursPerMonth = maxHoursPerMonth;
+	}
+
+	public void computeEmployeeWage() {
 
 		System.out.println("Welcome to Employee Wage Computation Program");
 		// variables
 		int empHrs = 0, totalWorkingDays = 0, totalEmpHrs = 0;
-
-		while (totalEmpHrs <= maxHrsPerMonth && totalWorkingDays < numOfWorkingDays) {
+		// computation
+		while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) {
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empCheck) {
@@ -38,14 +41,21 @@ public class EmpWage {
 			totalEmpHrs = totalEmpHrs + empHrs;
 			System.out.println("DAY#: " + totalWorkingDays + " Emp Hr: " + empHrs);
 		}
-		int totalEmpWage = totalEmpHrs * empRatePerHour;
-		System.out.println("Total emp Wage for company: " + company + " is: " + totalEmpWage);
-		return totalEmpWage;
+			totalEmpWage = totalEmpHrs * empRaterPerHour;
+	}
+	
+	@Override
+	public String toString() {
+		return "Total Emp Wage for the Company: "+company+" is: " +totalEmpWage;
 	}
 
 	public static void main(String[] args) {
-		computeEmployeeWage("DMart", 20, 2, 10);
-		computeEmployeeWage("Reliance", 10, 4, 20);
+		EmpWage dMart = new EmpWage("DMart", 20, 4, 10);
+		EmpWage reliance = new EmpWage("Reliance", 10, 3, 20);
+		dMart.computeEmployeeWage();
+		System.out.println(dMart);
+		reliance.computeEmployeeWage();
+		System.out.println(reliance);
 	}
 
 }
